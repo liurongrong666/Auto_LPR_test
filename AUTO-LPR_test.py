@@ -34,7 +34,6 @@ except NoSuchElementException:
     print(("未定位到最新的LPR元素"))
     quit()
 time.sleep(5)
-#哈哈哈
 handles1 = driver.window_handles
 print("所有窗口句柄:", handles1)
 driver.switch_to.window(handles1[2])
