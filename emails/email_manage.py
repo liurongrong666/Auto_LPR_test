@@ -17,7 +17,7 @@ class EmailManage:
         #创建邮件对象
         message = MIMEMultipart("related")
         subject = "最新LPR数据"    #邮件的主题
-        fujian = MIMEText(open("report.html","rb").read(),"html","utf-8")
+        fujian = MIMEText(open("test.png","rb").read(),"html","utf-8")
         #邮件信息组装到邮件对象里面
         message["form"] = username
         message["to"] = receiver

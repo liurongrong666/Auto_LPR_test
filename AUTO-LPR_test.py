@@ -77,9 +77,13 @@ driver.find_element_by_css_selector("body > div.el-select-dropdown.el-popper > d
 els[3].send_keys(updatetime)
 els[3]. send_keys(Keys.ENTER)
 driver.find_element_by_xpath("/html/body/div/div[2]/div[2]/div[2]/form/div[2]/button[2]").click()   #点击保存按钮
-driver.find_element_by_xpath("/html/body/div/div[2]/div[3]/div[2]/div[1]/div[1]/form/div/div[2]/div/div/div/input").send_keys(result)   #输入1年期
-driver.find_element_by_xpath("/html/body/div/div[2]/div[3]/div[2]/div[1]/div[2]/form/div/div[2]/div/div/div/input").send_keys(result1)   #输入5年期
-driver.find_element_by_xpath("/html/body/div/div[2]/div[3]/div[2]/div[1]/div[3]/button[2]").click()   #点击保存按钮
-time.sleep(2)
-driver.get_screenshot_as_file("./test.png")
+driver.get_screenshot_as_file("D:/python/LPR/emails/test.png")
+try:
+    driver.find_element_by_xpath("/html/body/div/div[2]/div[3]/div[2]/div[1]/div[1]/form/div/div[2]/div/div/div/input").send_keys(result)   #输入1年期
+    driver.find_element_by_xpath("/html/body/div/div[2]/div[3]/div[2]/div[1]/div[2]/form/div/div[2]/div/div/div/input").send_keys(result1)   #输入5年期
+    driver.find_element_by_xpath("/html/body/div/div[2]/div[3]/div[2]/div[1]/div[3]/button[2]").click()   #点击保存按钮
+    time.sleep(2)
+    driver.get_screenshot_as_file("D:/python/LPR/emails/test.png")
+except NoSuchElementException:
+    print("有执行中的单据")
 driver.quit()
