@@ -91,8 +91,9 @@ except NoSuchElementException:
     print("有执行中的单据")
 time.sleep(2)
 #driver.find_element_by_xpath("/html/body/div/div[2]/div[1]/div/div[1]/button").click() #点击提交按钮
-
 driver.quit()
+
+
 # 定义SMTP服务器
 smtpserver = 'smtp.qq.com'
 # 发送邮件的用户名合密码
