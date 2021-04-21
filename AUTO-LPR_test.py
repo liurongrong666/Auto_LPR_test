@@ -85,7 +85,7 @@ try:
     driver.find_element_by_xpath("/html/body/div/div[2]/div[3]/div[2]/div[1]/div[1]/form/div/div[2]/div/div/div/input").send_keys(result)   #输入1年期
     driver.find_element_by_xpath("/html/body/div/div[2]/div[3]/div[2]/div[1]/div[2]/form/div/div[2]/div/div/div/input").send_keys(result1)   #输入5年期
     driver.find_element_by_xpath("/html/body/div/div[2]/div[3]/div[2]/div[1]/div[3]/button[2]").click()   #点击保存按钮
-    time.sleep(2)
+    time.sleep(3)
     driver.get_screenshot_as_file("./test.png")
 except NoSuchElementException:
     print("有执行中的单据")
