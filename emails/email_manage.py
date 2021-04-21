@@ -12,7 +12,7 @@ class EmailManage:
         username = "1024269771@qq.com"
         password = "zhftjoormxbpbcgf"
         #接受邮件的邮箱
-        receiver = "1549902501@qq.com"
+        receiver = "3547208134@qq.com"
         #创建邮件对象
         message = MIMEMultipart("related")
         subject = "最新LPR数据"    #邮件的主题

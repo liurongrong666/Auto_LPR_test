@@ -7,7 +7,6 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.select import Select
 
 driver = webdriver.Chrome()
 A="http://www.pbc.gov.cn/rmyh/index.html"
@@ -86,4 +85,7 @@ try:
     driver.get_screenshot_as_file("D:/python/LPR/emails/test.png")
 except NoSuchElementException:
     print("有执行中的单据")
+time.sleep(2)
+#driver.find_element_by_xpath("/html/body/div/div[2]/div[1]/div/div[1]/button").click() #点击提交按钮
+
 driver.quit()
