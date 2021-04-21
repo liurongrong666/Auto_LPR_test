@@ -7,6 +7,10 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+import smtplib
+from email.mime.image import MIMEImage
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 driver = webdriver.Chrome()
 A="http://www.pbc.gov.cn/rmyh/index.html"
@@ -76,16 +80,40 @@ driver.find_element_by_css_selector("body > div.el-select-dropdown.el-popper > d
 els[3].send_keys(updatetime)
 els[3]. send_keys(Keys.ENTER)
 driver.find_element_by_xpath("/html/body/div/div[2]/div[2]/div[2]/form/div[2]/button[2]").click()   #点击保存按钮
-driver.get_screenshot_as_file("D:/python/LPR/emails/test.jpg")
+driver.get_screenshot_as_file("./test.png")
 try:
     driver.find_element_by_xpath("/html/body/div/div[2]/div[3]/div[2]/div[1]/div[1]/form/div/div[2]/div/div/div/input").send_keys(result)   #输入1年期
     driver.find_element_by_xpath("/html/body/div/div[2]/div[3]/div[2]/div[1]/div[2]/form/div/div[2]/div/div/div/input").send_keys(result1)   #输入5年期
     driver.find_element_by_xpath("/html/body/div/div[2]/div[3]/div[2]/div[1]/div[3]/button[2]").click()   #点击保存按钮
     time.sleep(2)
-    driver.get_screenshot_as_file("D:/python/LPR/emails/test.jpg")
+    driver.get_screenshot_as_file("./test.png")
 except NoSuchElementException:
     print("有执行中的单据")
 time.sleep(2)
 #driver.find_element_by_xpath("/html/body/div/div[2]/div[1]/div/div[1]/button").click() #点击提交按钮
 
 driver.quit()
+# 定义SMTP服务器
+smtpserver = 'smtp.qq.com'
+# 发送邮件的用户名合密码
+username = "1024269771@qq.com"
+password = "zhftjoormxbpbcgf"
+# 接受邮件的邮箱
+receiver = "3547208134@qq.com"
+# 创建邮件对象
+message = MIMEMultipart("related")
+subject = "最新LPR数据"  # 邮件的主题
+fujian = MIMEText(open("test.png", "rb").read(), 'base64', 'utf-8')
+fujian['Content-Type'] = 'application/octet-stream'
+fujian['Content-Disposition'] = 'attachent;filename = "test.jpg"'
+# 邮件信息组装到邮件对象里面
+message["form"] = username
+message["to"] = receiver
+message["subject"] = subject
+message.attach(fujian)
+# 登录smtp服务器发送邮件
+smtp = smtplib.SMTP()
+smtp.connect(smtpserver)
+smtp.login(username, password)
+smtp.sendmail(username, receiver, message.as_string())
+smtp.quit()
