@@ -5,12 +5,11 @@ import requests
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver import ActionChains
-from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import smtplib
-from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+
 
 driver = webdriver.Chrome()
 A="http://www.pbc.gov.cn/rmyh/index.html"
