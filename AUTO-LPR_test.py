@@ -10,7 +10,6 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-
 driver = webdriver.Chrome()
 A="http://www.pbc.gov.cn/rmyh/index.html"
 B = "https://poc.joysfintech.com/joys/login/pc_index.html?from=https%3A%2F%2Fpoc.joysfintech.com%2Fjoys%2Fpc_index.html%23%2F#/"
